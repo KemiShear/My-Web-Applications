@@ -1,225 +1,386 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaluwe Keminody | My Personal Website</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kaluwe Keminody's personal website about education, hobbies, and web development."
+    />
+    <title>Kaluwe Keminody | Kemi~Shear</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
 
-    <!-- Connect the CSS stylesheet -->
-    <link rel="stylesheet" href="css/styles.css">
-</head>
+  <body>
+    <!-- KEMI~SHEAR BRAND AND THEME CONTROLS -->
+    <div class="top-bar">
+      <a class="brand-mark" href="#about" aria-label="Kemi~Shear home">
+        <span class="brand-symbol">K</span>
+        <span>Kemi<span class="brand-accent">~Shear</span></span>
+      </a>
 
-<body>
+      <button
+        type="button"
+        id="theme-toggle"
+        class="theme-toggle"
+        aria-label="Switch to light mode"
+        aria-pressed="false"
+      >
+        <span id="theme-icon" aria-hidden="true">☀</span>
+        <span id="theme-label">Light mode</span>
+      </button>
+    </div>
 
-    <!-- Website Header -->
-    <header>
-        <h1>Kaluwe Keminody</h1>
-        <p>Computer Science Student | Web Technology Enthusiast</p>
+    <!-- WEBSITE HEADER -->
+    <header class="site-header">
+      <div class="header-content">
+        <p class="eyebrow">MY PERSONAL WEBSITE</p>
+        <h1>Welcome to My World</h1>
+        <p class="header-subtitle">
+          My journey as a Computer Science student
+        </p>
+      </div>
     </header>
 
-    <!-- Navigation Menu -->
-    <nav>
-        <a href="#about">About Me</a>
-        <a href="#hobbies">My Hobbies</a>
-        <a href="#learning">Learning Plan</a>
-        <a href="#photos">My Photos</a>
-        <a href="#media">My Media</a>
-        <a href="#contact">Contact</a>
+    <!-- NAVIGATION -->
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="#about">About Me</a>
+      <a href="#hobbies">Hobbies</a>
+      <a href="#learning">Learning Plan</a>
+      <a href="#photos">Photos</a>
+      <a href="#media">My Media</a>
+      <a href="#contact">Contact</a>
     </nav>
 
-    <!-- Main Website Content -->
+    <!-- MAIN CONTENT -->
     <main>
+      <!-- ABOUT ME -->
+      <section id="about" class="content-section about-section">
+        <p class="section-label">GET TO KNOW ME</p>
+        <h2>About Me</h2>
 
-        <!-- About Me Section -->
-        <section id="about" class="content-section">
-            <h2>About Me</h2>
+        <p>
+          My name is Kaluwe Keminody, and I am a second-year Computer Science
+          student at Mulungushi University. I am passionate about technology,
+          creativity, and discovering how digital systems work. I enjoy
+          exploring new ideas, learning practical skills, and solving problems
+          through logical thinking. My interests include software development,
+          web technologies, and computer applications. I believe that
+          consistency, curiosity, and hard work are essential for personal
+          growth. My goal is to develop strong technical skills and use them
+          to create useful digital solutions in the future.
+        </p>
+      </section>
 
-            <p>
-                My name is Kaluwe Keminody, and I am a second-year
-                Bachelor of Science in Computer Science student at
-                Mulungushi University. I am a passionate technology
-                enthusiast with a strong interest in web technologies,
-                programming, and digital innovation. I enjoy exploring
-                how technology can transform ideas into practical
-                solutions. My ambition is to develop the technical
-                skills and creativity needed to build innovative,
-                interactive, and user-friendly digital experiences
-                that address real-world challenges.
-            </p>
-        </section>
+      <!-- HOBBIES -->
+      <section id="hobbies" class="content-section">
+        <p class="section-label">WHAT I ENJOY</p>
+        <h2>My Hobbies</h2>
 
-        <!-- Hobbies Section -->
-        <section id="hobbies" class="content-section">
-            <h2>My Hobbies</h2>
+        <p>
+          In my free time, I enjoy activities that help me relax, stay active,
+          and learn new things.
+        </p>
 
-            <ul>
-                <li>Programming and coding</li>
-                <li>Reading and learning new technologies</li>
-                <li>Exploring digital creativity and design</li>
-            </ul>
-        </section>
+        <ul class="hobby-list">
+          <li>Playing football</li>
+          <li>Reading books</li>
+          <li>Listening to music</li>
+          <li>Watching educational videos</li>
+          <li>Exploring new technology</li>
+        </ul>
+      </section>
 
-        <!-- Learning Plan Section -->
-        <section id="learning" class="content-section">
-            <h2>My Learning Plan</h2>
+      <!-- LEARNING PLAN -->
+      <section id="learning" class="content-section">
+        <p class="section-label">MY PERSONAL DEVELOPMENT</p>
+        <h2>My Web Development Learning Plan</h2>
 
-            <p>
-                These are the steps I plan to follow to improve
-                my web development skills:
-            </p>
+        <p>
+          I have created a simple plan to help me improve my web development
+          knowledge and practical skills.
+        </p>
 
-            <ol>
-                <li>Master HTML and CSS to build well-structured
-                    and attractive web pages.</li>
-                <li>Learn JavaScript to make websites interactive
-                    and dynamic.</li>
-                <li>Build practical projects and learn how to
-                    develop complete websites.</li>
-            </ol>
+        <ol class="learning-steps">
+          <li>Learn HTML to build the structure of web pages.</li>
+          <li>Learn CSS to design attractive and responsive websites.</li>
+          <li>Learn JavaScript to add interactive features to websites.</li>
+          <li>Practise by creating small projects and improving my code.</li>
+        </ol>
 
-            <h3>My Weekly Web Learning Schedule</h3>
+        <h3>My Weekly Learning Schedule</h3>
 
-            <table>
-                <caption>My Weekly Web Development Practice Plan</caption>
+        <div class="table-container">
+          <table>
+            <caption>
+              Weekly Web Development Practice Plan
+            </caption>
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Topic</th>
+                <th>Practice Task</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Monday</td>
+                <td>HTML</td>
+                <td>Create a simple web page.</td>
+              </tr>
+              <tr>
+                <td>Wednesday</td>
+                <td>CSS</td>
+                <td>Style a page with colours and layouts.</td>
+              </tr>
+              <tr>
+                <td>Friday</td>
+                <td>JavaScript</td>
+                <td>Create a simple interactive button.</td>
+              </tr>
+              <tr>
+                <td>Saturday</td>
+                <td>Project Practice</td>
+                <td>Build and improve a personal website.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-                <thead>
-                    <tr>
-                        <th>Day</th>
-                        <th>Topic</th>
-                        <th>Practice Task</th>
-                    </tr>
-                </thead>
+        <p class="resource-link">
+          Learn more from
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Learn_web_development"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            MDN Web Development Resources
+          </a>.
+        </p>
+      </section>
 
-                <tbody>
-                    <tr>
-                        <td>Monday</td>
-                        <td>HTML</td>
-                        <td>Create a structured web page.</td>
-                    </tr>
+      <!-- PHOTO GALLERY -->
+      <section id="photos" class="content-section">
+        <p class="section-label">MOMENTS AND INTERESTS</p>
+        <h2>My Photo Gallery</h2>
 
-                    <tr>
-                        <td>Wednesday</td>
-                        <td>CSS</td>
-                        <td>Style a web page with colors and layouts.</td>
-                    </tr>
+        <p>
+          This gallery contains photos representing my interests, education,
+          and personal development. Select a photo to view it larger.
+        </p>
 
-                    <tr>
-                        <td>Friday</td>
-                        <td>JavaScript</td>
-                        <td>Create a simple interactive feature.</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="photo-gallery">
+          <figure class="photo-card">
+            <button
+              type="button"
+              class="photo-button"
+              data-full-image="images/photo1.jpg"
+              data-photo-alt="A photo representing my academic journey"
+              aria-label="View My Academic Journey photo larger"
+            >
+              <img
+                src="images/photo1.jpg"
+                alt="A photo representing my academic journey"
+              />
+              <span class="photo-view-label">⌕ VIEW PHOTO</span>
+            </button>
+            <figcaption>My Academic Journey</figcaption>
+          </figure>
 
-            <p>
-                Learn more about web development at
-                <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development"
-                   target="_blank" rel="noopener noreferrer">
-                    MDN Web Docs
-                </a>.
-            </p>
-        </section>
+          <figure class="photo-card">
+            <button
+              type="button"
+              class="photo-button"
+              data-full-image="images/photo2.jpg"
+              data-photo-alt="A photo representing my interest in technology"
+              aria-label="View My Interest in Technology photo larger"
+            >
+              <img
+                src="images/photo2.jpg"
+                alt="A photo representing my interest in technology"
+              />
+              <span class="photo-view-label">⌕ VIEW PHOTO</span>
+            </button>
+            <figcaption>My Interest in Technology</figcaption>
+          </figure>
 
-        <!-- Photo Gallery Section -->
-        <section id="photos" class="content-section">
-            <h2>My Photos</h2>
+          <figure class="photo-card">
+            <button
+              type="button"
+              class="photo-button"
+              data-full-image="images/photo3.jpg"
+              data-photo-alt="A photo representing my hobbies and personal growth"
+              aria-label="View My Hobbies and Personal Growth photo larger"
+            >
+              <img
+                src="images/photo3.jpg"
+                alt="A photo representing my hobbies and personal growth"
+              />
+              <span class="photo-view-label">⌕ VIEW PHOTO</span>
+            </button>
+            <figcaption>My Hobbies and Personal Growth</figcaption>
+          </figure>
+        </div>
+      </section>
 
-            <div class="photo-gallery">
+      <!-- VIDEO AND AUDIO -->
+      <section id="media" class="content-section">
+        <p class="section-label">A LITTLE MORE ABOUT ME</p>
+        <h2>My Media</h2>
 
-                <figure>
-                    <img src="images/photo1.jpg"
-                         alt="A personal photograph of Kaluwe Keminody">
-                    <figcaption>A little introduction to who I am.</figcaption>
-                </figure>
+        <!-- INTRODUCTION VIDEO -->
+        <div class="media-card">
+          <p class="section-label">KEMI~SHEAR VIDEO STUDIO</p>
+          <h3>My Introduction Video</h3>
 
-                <figure>
-                    <img src="images/photo2.jpg"
-                         alt="A photograph related to my university studies">
-                    <figcaption>My journey as a Computer Science student.</figcaption>
-                </figure>
+          <p>
+            This video introduces me, my programme of study, and a web
+            development skill I hope to improve.
+          </p>
 
-                <figure>
-                    <img src="images/photo3.jpg"
-                         alt="A photograph representing one of my hobbies">
-                    <figcaption>Exploring my interests and creativity.</figcaption>
-                </figure>
+          <video controls preload="metadata">
+            <source src="videos/intro.mp4" type="video/mp4" />
+            Your browser does not support the video element.
+          </video>
 
+          <p class="media-summary">
+            <strong>Video summary:</strong>
+            My name is Kaluwe Keminody. I am a Computer Science student at
+            Mulungushi University. I am interested in technology and hope
+            to improve my skills in HTML, CSS, and JavaScript.
+          </p>
+        </div>
+
+        <!-- AUDIO RECORDING -->
+        <div class="media-card rgb-card">
+          <p class="section-label">KEMI~SHEAR AUDIO STUDIO</p>
+          <h3>
+            <span class="media-symbol" aria-hidden="true">♫</span>
+            My Audio Recording
+          </h3>
+
+          <p>
+            This recording describes one of my hobbies and my interest
+            in learning web technologies.
+          </p>
+
+          <div class="audio-player">
+            <div class="audio-icon" aria-hidden="true">♫</div>
+
+            <div class="audio-details">
+              <strong>My Personal Audio</strong>
+              <span>Kaluwe Keminody · Kemi~Shear</span>
+
+              <audio controls preload="metadata">
+                <source src="videos/voice.Ama" type="audio/mpeg" />
+                Your browser cannot play this MP3 file.
+              </audio>
+
+              <p class="audio-help">
+                Use the play button to listen to the recording.
+              </p>
             </div>
-        </section>
+          </div>
 
-        <!-- Video and Audio Section -->
-        <section id="media" class="content-section">
-            <h2>My Media</h2>
+          <p class="media-summary">
+            <strong>Audio description:</strong>
+            In this recording, I explain why I enjoy playing football,
+            reading books, and learning about technology.
+          </p>
+        </div>
+      </section>
 
-            <h3>My Introduction Video</h3>
+      <!-- CONTACT FORM -->
+      <section id="contact" class="content-section">
+        <p class="section-label">LET'S CONNECT</p>
+        <h2>Contact Me</h2>
 
-            <video controls>
-                <source src="videos/intro.mp4" type="video/mp4">
-                Your browser does not support the video element.
-            </video>
+        <p>
+          Use the form below to write a message. This is a demonstration
+          form only and does not send information to a server.
+        </p>
 
-            <p>
-                In this video, I introduce myself, my Computer Science
-                programme, and my interest in learning web development.
-            </p>
+        <form action="#" method="get">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your full name"
+              required
+            />
+          </div>
 
-            <p>
-                <strong>Video summary:</strong>
-                I am Kaluwe Keminody, a Computer Science student at
-                Mulungushi University. I am passionate about web
-                technology and aspire to master full-stack web
-                development to create innovative digital solutions.
-            </p>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email address"
+              required
+            />
+          </div>
 
-            <h3>My Audio Recording</h3>
+          <div class="form-group">
+            <label for="topic">Topic</label>
+            <input
+              type="text"
+              id="topic"
+              name="topic"
+              placeholder="What is your message about?"
+            />
+          </div>
 
-            <audio controls>
-                <source src="videos/voice.amr" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Write your message here..."
+              required
+            ></textarea>
+          </div>
 
-            <p>
-                This recording describes my interest in programming
-                and my motivation for studying web technologies.
-            </p>
-        </section>
-
-        <!-- Contact Form Section -->
-        <section id="contact" class="content-section">
-            <h2>Contact Me</h2>
-
-            <p>
-                Use the form below to practise sending a message.
-                This is a demonstration form and does not send data.
-            </p>
-
-            <form action="#" method="get">
-
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="topic">Topic:</label>
-                <input type="text" id="topic" name="topic">
-
-                <label for="message">Your Message:</label>
-                <textarea id="message" name="message"
-                          rows="5" required></textarea>
-
-                <button type="submit">Submit Message</button>
-
-            </form>
-        </section>
-
+          <button type="submit">Submit Message</button>
+        </form>
+      </section>
     </main>
 
-    <!-- Website Footer -->
-    <footer>
-        <p>&copy; 2026 Kaluwe Keminody | ICT251 Web Technologies</p>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p>&copy; 2026 Kaluwe Keminody. All rights reserved.</p>
+      <p>Kemi~Shear | ICT251 Web Technologies | Activity 2</p>
     </footer>
 
-</body>
+    <!-- PHOTO LIGHTBOX -->
+    <div
+      id="photo-lightbox"
+      class="photo-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Enlarged photo viewer"
+      aria-hidden="true"
+      hidden
+    >
+      <button
+        type="button"
+        id="close-lightbox"
+        class="close-lightbox"
+        aria-label="Close enlarged photo"
+      >
+        &times;
+      </button>
+
+      <img id="lightbox-image" src="" alt="" />
+      <p id="lightbox-caption">Kemi~Shear Photo Viewer</p>
+    </div>
+
+    <!-- CONNECT JAVASCRIPT -->
+    <script src="script.js" defer></script>
+  </body>
 </html>
+```

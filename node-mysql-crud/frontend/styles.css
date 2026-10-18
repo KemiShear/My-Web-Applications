@@ -1,0 +1,488 @@
+
+/* =========================================================
+   NEXUS PRODUCT CONTROL
+   Cyberpunk HUD + Glassmorphism + Dark Neumorphism
+   ========================================================= */
+
+:root {
+    color-scheme: dark;
+
+    /* Backgrounds and surfaces */
+    --bg: #0B0C10;
+    --surface: #111821;
+    --surface-raised: #17212B;
+    --surface-inset: #080B10;
+
+    /* RGB accent channels */
+    --neon-red: #FF0055;
+    --neon-green: #00FF66;
+    --neon-blue: #00E5FF;
+    --neon-purple: #9D4EDD;
+
+    /* Text and borders */
+    --text: #EAF2F8;
+    --muted: #93A4B5;
+    --border: #263744;
+
+    /* Glass opacity */
+    --glass-bg: rgb(17 24 33 / 78%);
+    --glass-border: rgb(234 242 248 / 12%);
+
+    /* RGB glow effects */
+    --glow-blue:
+        0 0 8px rgb(0 229 255 / 28%),
+        0 0 22px rgb(0 229 255 / 10%);
+
+    --glow-green:
+        0 0 8px rgb(0 255 102 / 25%),
+        0 0 18px rgb(0 255 102 / 10%);
+
+    --glow-red:
+        0 0 8px rgb(255 0 85 / 28%),
+        0 0 18px rgb(255 0 85 / 10%);
+
+    /* Dark neumorphic shadows */
+    --shadow-raised:
+        6px 6px 14px #050609,
+        -4px -4px 12px #1A2029;
+
+    --shadow-inset:
+        inset 4px 4px 9px #050609,
+        inset -3px -3px 8px #1A2029;
+
+    /* Layout */
+    --sidebar-width: 250px;
+    --radius: 12px;
+    --radius-small: 7px;
+}
+
+/* Predictable sizing */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text);
+    background-color: var(--bg);
+
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.5;
+
+    /* Subtle technical grid */
+    background-image:
+        linear-gradient(
+            rgb(0 229 255 / 3%) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgb(0 229 255 / 3%) 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            circle at 80% 10%,
+            rgb(157 78 221 / 10%),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 10% 85%,
+            rgb(0 229 255 / 7%),
+            transparent 32%
+        );
+
+    background-size:
+        40px 40px,
+        40px 40px,
+        auto,
+        auto;
+}
+
+/* Telemetry and technical labels */
+.mono,
+.metric-value,
+.product-id,
+.eyebrow {
+    font-family: Consolas, "Courier New", monospace;
+}
+
+.eyebrow {
+    color: var(--neon-blue);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+/* Dashboard framework */
+.dashboard {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+    min-height: 100vh;
+}
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    height: 100vh;
+    padding: 24px 16px;
+
+    background: rgb(10 13 18 / 94%);
+    border-right: 1px solid var(--border);
+}
+
+.brand {
+    padding: 8px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.brand span {
+    color: var(--neon-blue);
+    text-shadow: 0 0 12px rgb(0 229 255 / 40%);
+}
+
+.main-content {
+    min-width: 0;
+    padding: 28px;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+h1 {
+    margin-bottom: 6px;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    letter-spacing: -0.035em;
+}
+
+/* Glass panels */
+.glass-panel {
+    position: relative;
+    min-width: 0;
+    padding: 22px;
+
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 12px 32px rgb(0 0 0 / 24%),
+        inset 0 1px 0 rgb(255 255 255 / 3%);
+}
+
+/* Optional gradient border */
+.gradient-panel {
+    border-color: transparent;
+
+    background:
+        linear-gradient(
+            var(--glass-bg),
+            var(--glass-bg)
+        ) padding-box,
+        linear-gradient(
+            125deg,
+            rgb(0 229 255 / 65%),
+            rgb(157 78 221 / 35%),
+            rgb(255 0 85 / 35%)
+        ) border-box;
+}
+
+/* Angular HUD panel corners */
+.hud-panel {
+    border-radius: 3px;
+    clip-path: none;
+}
+
+.hud-panel::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+
+    width: 28px;
+    height: 3px;
+    background: var(--neon-blue);
+    box-shadow: var(--glow-blue);
+}
+
+/* Summary cards */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.metric-value {
+    margin: 8px 0;
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    font-weight: 700;
+}
+
+.text-blue {
+    color: var(--neon-blue);
+}
+
+.text-green {
+    color: var(--neon-green);
+}
+
+.text-red {
+    color: var(--neon-red);
+}
+
+/* Neumorphic controls */
+.nav-button,
+.btn,
+.input,
+.select,
+.textarea {
+    font: inherit;
+    color: var(--text);
+    border: 1px solid transparent;
+    border-radius: var(--radius-small);
+    transition:
+        border-color 160ms ease,
+        box-shadow 160ms ease,
+        background-color 160ms ease;
+}
+
+.nav-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    padding: 12px;
+
+    text-align: left;
+    background: var(--surface);
+    box-shadow: var(--shadow-raised);
+    cursor: pointer;
+}
+
+.nav-button:hover,
+.nav-button[aria-current="page"] {
+    color: var(--neon-blue);
+    border-color: rgb(0 229 255 / 35%);
+    box-shadow: var(--glow-blue);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 42px;
+    padding: 10px 16px;
+
+    background: var(--surface-raised);
+    box-shadow: var(--shadow-raised);
+    cursor: pointer;
+}
+
+.btn-primary {
+    color: #041015;
+    font-weight: 700;
+    background: var(--neon-blue);
+    border-color: var(--neon-blue);
+    box-shadow: var(--glow-blue);
+}
+
+.btn-danger {
+    color: #fff;
+    border-color: rgb(255 0 85 / 45%);
+}
+
+.btn-danger:hover {
+    box-shadow: var(--glow-red);
+}
+
+.btn-success {
+    color: var(--neon-green);
+    border-color: rgb(0 255 102 / 35%);
+}
+
+.btn-success:hover {
+    box-shadow: var(--glow-green);
+}
+
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: var(--shadow-inset);
+}
+
+/* Inputs */
+.input,
+.select,
+.textarea {
+    width: 100%;
+    padding: 12px 14px;
+
+    background: var(--surface-inset);
+    border-color: var(--border);
+    box-shadow: var(--shadow-inset);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: #778A9B;
+}
+
+.input:focus-visible,
+.select:focus-visible,
+.textarea:focus-visible,
+.btn:focus-visible,
+.nav-button:focus-visible {
+    outline: 2px solid var(--neon-blue);
+    outline-offset: 3px;
+    box-shadow: var(--glow-blue);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.form-field {
+    display: grid;
+    gap: 7px;
+}
+
+.form-field label {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* Product table */
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.product-table th {
+    padding: 14px;
+    color: var(--neon-blue);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    background: rgb(0 229 255 / 4%);
+    border-bottom: 1px solid var(--border);
+}
+
+.product-table td {
+    padding: 15px 14px;
+    border-bottom: 1px solid rgb(38 55 68 / 75%);
+}
+
+.product-table tbody tr:hover {
+    background: rgb(0 229 255 / 4%);
+}
+
+.stock-badge {
+    display: inline-block;
+    padding: 4px 9px;
+    color: var(--neon-green);
+    background: rgb(0 255 102 / 7%);
+    border: 1px solid rgb(0 255 102 / 22%);
+    border-radius: 4px;
+    font-size: 0.78rem;
+}
+
+/* Use drop-shadow for small transparent SVG/icon shapes,
+   not large panels or every table row. */
+.neon-icon {
+    filter: drop-shadow(0 0 4px rgb(0 229 255 / 55%));
+}
+
+.muted {
+    color: var(--muted);
+}
+
+[hidden] {
+    display: none !important;
+}
+
+button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Responsive layout */
+@media (max-width: 1050px) {
+    .metrics-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .main-content {
+        padding: 18px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}

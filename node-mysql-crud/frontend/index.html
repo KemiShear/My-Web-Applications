@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NEXUS futuristic product inventory management dashboard">
+  <title>NEXUS | Product Control</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <div class="brand">NEXUS <span>// CONTROL</span></div>
+
+      <nav aria-label="Main navigation">
+        <button class="nav-button" aria-current="page">
+          ◈ Product Inventory
+        </button>
+        <button class="nav-button" id="catalogue-nav">
+          ▦ Catalogue
+        </button>
+      </nav>
+
+      <p class="eyebrow">SYSTEM / ONLINE</p>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">CONTROL TERMINAL / 01</p>
+          <h1>Product Inventory</h1>
+          <p class="muted">Manage products, pricing and stock.</p>
+        </div>
+
+        <button class="btn btn-primary" id="add-product-button">
+          + Add Product
+        </button>
+      </header>
+
+      <section class="metrics-grid" aria-label="Inventory summary">
+        <article class="glass-panel hud-panel">
+          <p class="muted">Total Products</p>
+          <p class="metric-value text-blue" id="total-products">--</p>
+        </article>
+
+        <article class="glass-panel hud-panel">
+          <p class="muted">Total Stock Units</p>
+          <p class="metric-value text-green" id="total-stock">--</p>
+        </article>
+
+        <article class="glass-panel hud-panel">
+          <p class="muted">Inventory Value</p>
+          <p class="metric-value" id="inventory-value">--</p>
+        </article>
+
+        <article class="glass-panel hud-panel">
+          <p class="muted">API Status</p>
+          <p class="metric-value text-green" id="api-status">CHECKING</p>
+        </article>
+      </section>
+
+      <section class="glass-panel" id="product-form-panel">
+        <h2 id="form-title">Product Editor</h2>
+        <p class="muted">
+          Enter product details to create or update a record.
+        </p>
+
+        <form id="product-form">
+          <input type="hidden" id="product-id">
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="product-name">Product Name</label>
+              <input class="input" id="product-name"
+                     name="product_name" required>
+            </div>
+
+            <div class="form-field">
+              <label for="brand">Brand</label>
+              <input class="input" id="brand"
+                     name="brand" required>
+            </div>
+
+            <div class="form-field">
+              <label for="category">Category</label>
+              <input class="input" id="category"
+                     name="category" required>
+            </div>
+
+            <div class="form-field">
+              <label for="price">Price (K)</label>
+              <input class="input" id="price" name="price"
+                     type="number" min="0" step="0.01" required>
+            </div>
+
+            <div class="form-field">
+              <label for="quantity">Quantity</label>
+              <input class="input" id="quantity" name="quantity"
+                     type="number" min="0" step="1" required>
+            </div>
+
+            <div class="form-field">
+              <label for="description">Description</label>
+              <textarea class="textarea" id="description"
+                        name="description" required></textarea>
+            </div>
+          </div>
+
+          <p>
+            <button class="btn btn-primary" type="submit">
+              Save Product
+            </button>
+            <button class="btn" id="clear-form-button" type="button">
+              Clear Form
+            </button>
+          </p>
+
+          <p id="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="glass-panel" id="catalogue-section"
+               aria-labelledby="catalogue-title">
+        <h2 id="catalogue-title">Product Catalogue</h2>
+
+        <div class="form-field">
+          <label for="search-products">Search products</label>
+          <input class="input" id="search-products" type="search"
+                 placeholder="Search by name, brand or category">
+        </div>
+
+        <div class="table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Product</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody id="product-list">
+              <tr>
+                <td colspan="6">Waiting for the API connection...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -1,4 +1,3 @@
-
 const API_URL = "https://nexus-tech-api.onrender.com/api/products";
 
 const productList = document.getElementById("product-list");
